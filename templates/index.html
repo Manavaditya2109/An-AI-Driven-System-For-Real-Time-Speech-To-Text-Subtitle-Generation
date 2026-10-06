@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-Time Subtitle Generator</title>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #111; color: #fff; font-family: Arial, sans-serif; }
+
+    #subtitleOverlay {
+      position: fixed; bottom: 80px; left: 0; right: 0;
+      padding: 10px 20px; max-height: 200px; overflow-y: auto;
+      text-align: center; font-size: 1.4rem;
+      background: rgba(0,0,0,0.6);
+    }
+    #subtitleOverlay p { margin: 4px 0; }
+
+    #transcript {
+      width: 100%; height: 300px;
+      background: #1a1a1a; color: #ccc;
+      margin-top: 20px; padding: 10px;
+      font-family: monospace; font-size: 0.9rem;
+      border: none; resize: none;
+    }
+
+    #controls {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      padding: 12px 20px; background: #222;
+      display: flex; gap: 10px; align-items: center;
+    }
+
+    button {
+      padding: 8px 20px; font-size: 1rem;
+      cursor: pointer; border: none; border-radius: 4px;
+    }
+    #startBtn  { background: #2ecc71; color: #fff; }
+    #stopBtn   { background: #e74c3c; color: #fff; }
+    #downloadBtn { background: #3498db; color: #fff; }
+    button:disabled { opacity: 0.4; cursor: default; }
+
+    #status { color: #2ecc71; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+  <div id="subtitleOverlay"></div>
+  <textarea id="transcript" placeholder="Transcript will appear here..."></textarea>
+
+  <div id="controls">
+    <button id="startBtn">▶ Start</button>
+    <button id="stopBtn" disabled>⏸ Stop</button>
+    <button id="downloadBtn">↓ Download</button>
+    <span id="status">Ready</span>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
