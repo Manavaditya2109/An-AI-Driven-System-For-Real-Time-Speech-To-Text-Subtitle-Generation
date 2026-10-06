@@ -4,7 +4,9 @@ A browser-based web app that turns live microphone speech into on-screen subtitl
 
 B.Tech Final Year Project, Manipal University Jaipur (CSE, AI & ML), 2026.
 
-<!-- Add a screenshot here: ![Subtitle interface](screenshots/interface.png) -->
+![Subtitle interface](screenshots/interface.png)
+
+*The confidence indicator marks each subtitle as High (green), Medium (orange) or Low (red), so uncertain lines are easy to spot.*
 
 ## Features
 
